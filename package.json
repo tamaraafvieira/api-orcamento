@@ -1,0 +1,14 @@
+{
+  "name": "apideorcamento",
+  "version": "1.0.0",
+  "description": "API de orcamento que retorna uma listagem de usuários e produtos e também um orcamento",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tamara Vieira",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
