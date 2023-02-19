@@ -12,9 +12,9 @@ const axios = require('axios')
   
 //   module.exports = getProducts;
 
-// async function getProducts(){
-//     const id =1
-//     const response = await axios.get(`https://mockend.com/juunegreiros/BE-test-api/products/${id}`)
-//     console.log(response.data)
-// }
-// getProducts()
+async function getProducts(){
+    const id =1
+    const response = await axios.get(`https://mockend.com/juunegreiros/BE-test-api/products/${id}`)
+    console.log(response.data)
+}
+getProducts()

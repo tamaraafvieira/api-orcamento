@@ -1,21 +1,29 @@
-const { default: axios } = require('axios')
+const axios= require('axios')
 const express = require('express')
-const server = express()
-const fetch = require('node-fetch')
-//const getUsers = require('./users');
-//const getProducts = require('./products');
-//const calculateBudget = require('./budget');
+const app = express()
+//const fetch = require('node-fetch')
+const getUsers = require('./src/routes/users');
+const getProducts = require('./src/routes/products');
+const calculateBudget = require('./src/routes/budget');
+
+
+app.get('/users', async (req, res) => {
+    const users = await getUsers()
+    res.send(users)
+})
 
 
 
-// const app = express();
 
-//Middleware para retornar a lista de usuários e produtos e o valor do orçamento
+
+
+
 app.use(async (req, res, next) => {
   const budget = await calculateBudget();
   res.locals.budget = budget;
   next();
 });
+
 
 
 
