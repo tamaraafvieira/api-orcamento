@@ -16,7 +16,20 @@ Para retornar uma lista com todos os produtos cadastrados digite o seguinte endp
 http://localhost:8080/products
 
 Para retornar um único usuário pelo seu id digite o seguinte endpoint: 
-http://localhost:8080/user/1
+http://localhost:8080/user/:id
+*substituindo o ":id" pelo id desejado
 
 Para retornar um único produto pelo seu id digite o seguinte endpoint: 
-http://localhost:8080/product/1
+http://localhost:8080/product/:id
+*substituindo o ":id" pelo id desejado
+
+Para retornar uma lista com os produtos de cada usuário deve-ser passar o seguinte endpoint:
+
+http://localhost:8080/user/1/products
+*substituindo o ":id" pelo id desejado
+**Deve-se utilizar o método Post e passar a seguinte requisição:
+    {
+  "productList": [id, id, id]
+}
+*substituindo o "id" pelos números de id desejados
+

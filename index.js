@@ -79,8 +79,6 @@ server.get('/products', async (req, res) => {
   }
 })
 
-
-
 //Retorna o usuário pelo id
 async function getUserById(userId) {
   try {
@@ -129,6 +127,39 @@ server.get('/product/:id', async (req, res) => {
   return res.json(product)
 })
 
+//Lista de produtos por usuário 
+server.post('/user/:id/products', async (req, res) => {
+  const userId = req.params.id
+  const productList = req.body.productList
+
+  try {
+    const user = await getUserById(userId)
+
+    if (user.error) {
+      return res.status(404).send({ error: user.error })
+    }
+
+    const products = []
+
+    for (const productId of productList) {
+      const product = await getProductById(productId)
+
+      if (product.error) {
+        return res.status(404).send({ error: product.error })
+      }
+
+      products.push(product)
+    }
+
+    return res.json({
+      user,
+      products
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).send({ error: error.message })
+  }
+})
 
 
 
