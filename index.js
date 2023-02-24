@@ -139,7 +139,7 @@ server.post('/user/:id/products', async (req, res) => {
       return res.status(404).send({ error: user.error })
     }
 
-    const products = []
+   products = []
 
     for (const productId of productList) {
       const product = await getProductById(productId)
@@ -161,19 +161,74 @@ server.post('/user/:id/products', async (req, res) => {
   }
 })
 
+server.get('/user/:id/total', async (req, res) => {
+  const userId = req.params.id
+
+  try {
+    const user = await getUserById(userId)
+
+    if (user.error) {
+      return res.status(404).send({ error: user.error })
+    }
+
+    let total = 0
+
+    for (const product of global.products) {
+      total += product.value * (user.tax / 100)
+    }
+
+    return res.json({
+      user,
+      total
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).send({ error: error.message })
+  }
+})
+
+//Calcular o valor que o usuário irá pagar nos produtos de acordo com a taxa de cada um
+server.post('/calculate-price', async (req, res) => {
+  const userId = req.body.userId
+  const productList = req.body.productList
+
+  try {
+    const user = await getUserById(userId)
+
+    if (user.error) {
+      return res.status(404).send({ error: user.error })
+    }
+
+    let totalPrice = 0
+    const products = []
+
+    for (const productId of productList) {
+      const product = await getProductById(productId)
+
+      if (product.error) {
+        return res.status(404).send({ error: product.error })
+      }
+      //Essa conta está errada
+      const priceWithTax = product.price + (product.price * user.tax / 100)
+      totalPrice += priceWithTax
+
+      products.push({
+        ...product,
+        price: priceWithTax
+      })
+    }
+
+    return res.json({
+      total: totalPrice,
+      products
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).send({ error: error.message })
+  }
+})
 
 
-
-//Retorna passando o id no navegador, porém retorna somente o id, sem as informações , está funcionando
-// server.get('/products/:id', async (req, res) => {
-//   const {id} = req.params
-// try{
-//   const {data} = await api.get(`products/${id}`)
-//   return res.send({ id: data.id })
-// } catch (error) {
-//   res.send({ error: error.message })
-// }
-// })
 
 
 
