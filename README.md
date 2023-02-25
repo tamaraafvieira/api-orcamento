@@ -28,23 +28,28 @@ node index.js
 
 GET `/users`
 🇺🇸 Return the complete list with all registered users.
-<sub>🇧🇷 Retorna a lista completa de todos os usuários cadastrados.</sub>
+
+  <sub>🇧🇷 Retorna a lista completa de todos os usuários cadastrados.</sub>
 
 GET `/products`
 🇺🇸 Return the complete list with all registered products.
-<sub>🇧🇷 Retorna a lista completa de todos os produtos cadastrados.</sub>
+
+  <sub>🇧🇷 Retorna a lista completa de todos os produtos cadastrados.</sub>
 
 GET `/user/:id`
 🇺🇸 Return a user by their id.
-<sub>🇧🇷 Retorna um usuário pelo seu id.</sub>
+
+  <sub>🇧🇷 Retorna um usuário pelo seu id.</sub>
 
 GET `/product/:id`
 🇺🇸 Return a product by their id.
-<sub>🇧🇷 Retorna um produto pelo seu id.</sub>
+
+  <sub>🇧🇷 Retorna um produto pelo seu id.</sub>
 
 POST `/user/:id/products`
 🇺🇸 Add a product list to a specific user.
-<sub>🇧🇷 Adiciona uma lista de produtos a um usuário específico.</sub>
+
+  <sub>🇧🇷 Adiciona uma lista de produtos a um usuário específico.</sub>
 ```
 {
   "productList": [id, id, id]
@@ -53,7 +58,8 @@ POST `/user/:id/products`
 
 POST `/ calculate-price`
 🇺🇸 Calculates the value a user will pay for their selected products according to the user's tax and sum the total amount.
-<sub>🇧🇷 Calcula o valor que o usuário irá pagar pelos produtos adicionados de acordo com a taxa de cada um e o total.</sub>
+
+  <sub>🇧🇷 Calcula o valor que o usuário irá pagar pelos produtos adicionados de acordo com a taxa de cada um e o total.</sub>
 ```
 {
     "userId": id,
