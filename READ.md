@@ -61,7 +61,8 @@ POST `/ calculate-price`
 }
 ```
 
-🇺🇸 * Replace the ":id" or "id" by the intended id.
+🇺🇸 *Replace the ":id" or "id" by the intended id.
+
 <sub>🇧🇷 *Substitua o ":id" ou "id" pelo id desejado.</sub>
 
 
