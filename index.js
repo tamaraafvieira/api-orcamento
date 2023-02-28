@@ -28,7 +28,6 @@ async function usersArray() {
   }
 }
 
-let userList = []
 
 server.on("listening", async () => {
   userList = await usersArray();
@@ -51,8 +50,6 @@ async function productsArray() {
     console.error({ error: error.message })
   }
 }
-
-let productList = []
 
 server.on("listening", async () => {
   productList = await productsArray();
