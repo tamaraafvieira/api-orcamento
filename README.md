@@ -72,7 +72,7 @@ POST `/ calculate-price`
 <sub>🇧🇷 *Substitua o ":id" ou "id" pelo id desejado.</sub>
 
 
-<h2>Autora</h2>
+<h2>Author</h2>
 Name: Tamara
 
 [Linkedin](https://www.linkedin.com/in/tamaraafvieira/)
